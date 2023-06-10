@@ -1,2 +1,6 @@
 # sdlfuck
-shit physics engine in 2d space
+silly little physics engine test im making
+
+# features
+-shit codebase
+-nothing interesting
