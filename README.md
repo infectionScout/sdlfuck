@@ -2,5 +2,5 @@
 silly little physics engine test im making
 
 # features
--shit codebase
--nothing interesting
+- shit codebase
+- nothing interesting
