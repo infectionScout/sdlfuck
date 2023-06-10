@@ -15,13 +15,14 @@ void Player::LoadMedia(SDL_Renderer *renderer, std::string file){
 Player::Player(int sw, int sh, int w, int h, std::string filePath, SDL_Renderer *renderer)
 {
     LoadMedia(renderer, filePath);
-    
+    this->src = {0,0,51,49};
+    this->dst = {200,200,51,49};
 
 
 
 }
 
 void Player::Flip(SDL_Renderer *renderer){
-    SDL_RenderCopy(renderer, image, NULL, NULL);
+    SDL_RenderCopy(renderer, image, &src, &dst);
     
 }

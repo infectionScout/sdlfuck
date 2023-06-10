@@ -49,6 +49,9 @@ int main(int argc, char* args[]){
                      if( e.type == SDL_QUIT ){
                         quit = true;
                     }
+
+                    
+
                     SDL_RenderClear( renderer );
                     //INSERT ALL FLIPS BELOW ME
 

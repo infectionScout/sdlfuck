@@ -9,6 +9,8 @@ class Player{
         void Flip(SDL_Renderer *renderer);
         int x;
         int y;
+        SDL_Rect src;
+        SDL_Rect dst;
     private:
         SDL_Texture* image;
         
