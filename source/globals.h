@@ -2,8 +2,12 @@
 #define GLOBALS
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_scancode.h>
+#include <map>
 
-bool CollidesWith(SDL_Rect x, SDL_Rect y);
+
+
+bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB);
 
 
 #endif
