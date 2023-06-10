@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "player.h"
+#include "globals.h"
 
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -14,7 +15,9 @@ SDL_Surface* screenSurface = NULL;
 
 SDL_Renderer* renderer = NULL;
 
-    
+
+SDL_Rect platform;
+
 int main(int argc, char* args[]){
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -35,9 +38,11 @@ int main(int argc, char* args[]){
 
             screenSurface = SDL_GetWindowSurface( window );
 
-            SDL_SetRenderDrawColor(renderer, 155, 155, 155, 0xFF );
+            
             
             SDL_UpdateWindowSurface( window );
+
+            platform = {0,400,640,50};
 
             SDL_Event e; 
             bool quit = false; 
@@ -52,8 +57,13 @@ int main(int argc, char* args[]){
 
                     
 
+
+                    
                     SDL_RenderClear( renderer );
                     //INSERT ALL FLIPS BELOW ME
+                    SDL_SetRenderDrawColor(renderer, 0, 200, 0, 0xFF );
+                    SDL_RenderDrawRect(renderer,&platform);
+                    SDL_SetRenderDrawColor(renderer, 155, 155, 155, 0xFF );
 
                     jerry.Flip(renderer);
 

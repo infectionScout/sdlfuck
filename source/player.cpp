@@ -1,4 +1,5 @@
 #include "player.h"
+#include "globals.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -24,5 +25,9 @@ Player::Player(int sw, int sh, int w, int h, std::string filePath, SDL_Renderer 
 
 void Player::Flip(SDL_Renderer *renderer){
     SDL_RenderCopy(renderer, image, &src, &dst);
+    
+}
+
+void Player::mainLoop(){
     
 }
