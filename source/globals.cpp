@@ -1,6 +1,7 @@
 #include "globals.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_ttf.h>
 
 bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB)
 {
@@ -10,4 +11,8 @@ bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB)
 
     return xCollision && yCollision;
 }
+
+
+
+
 

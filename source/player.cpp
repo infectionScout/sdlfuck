@@ -13,7 +13,7 @@ void Player::LoadMedia(SDL_Renderer *renderer, std::string file){
     }
 }
 
-Player::Player(int sw, int sh, int w, int h, std::string filePath, SDL_Renderer *renderer)
+Player::Player(int sw, int sh, int w, int h, std::string filePath, SDL_Renderer *renderer) : x(200), y(200)
 {
     LoadMedia(renderer, filePath);
     this->src = {0,0,51,49};
@@ -29,5 +29,10 @@ void Player::Flip(SDL_Renderer *renderer){
 }
 
 void Player::mainLoop(){
-    
+    dst.x = this->x;
+    dst.y = this->y;
+
+    //this->x += 1;
+
+
 }
