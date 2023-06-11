@@ -50,14 +50,14 @@ int main(int argc, char* args[]){
             SDL_Event e; 
             bool quit = false; 
 
-            Player jerry(51,49,51,49,"/home/weednation/sdlfuck/resource/player.png", renderer);
+            Player jerry(51,49,51,49,"/home/weednation/sdlfuck/res/player.png", renderer);
             
             
                         
 
             SDL_Color black = {0, 0, 0};
 
-            TTF_Font* sex = TTF_OpenFont("/home/weednation/sdlfuck/resource/helvetica.ttf", 12);
+            TTF_Font* sex = TTF_OpenFont("/home/weednation/sdlfuck/res/helvetica.ttf", 12);
             if (sex == NULL){
                 printf("%s",SDL_GetError());
             }
