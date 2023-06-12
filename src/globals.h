@@ -9,6 +9,6 @@
 
 
 bool checkCollision(const SDL_Rect& rectA, const SDL_Rect& rectB);
-
+bool checkKey(std::string key, std::vector<std::string> array);
 
 #endif

@@ -2,6 +2,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <vector>
+#include <algorithm>
 #include "player.h"
 #include "globals.h"
 
@@ -76,6 +78,7 @@ int main(int argc, char* args[]){
             std::string data = "No keys pressed";
             while( quit == false ){ 
                 pressedKeys.clear();
+                releasedKeys.clear();
                 SDL_DestroyTexture(leText);
                 SDL_FreeSurface(temp);
                 
@@ -84,13 +87,35 @@ int main(int argc, char* args[]){
                         quit = true;
                     }
                     if (e.type == SDL_KEYDOWN){
-                        pressedKeys.push_back( SDL_GetKeyName(e.key.keysym.sym) );
+                        if (e.key.repeat == 0){
+                            pressedKeys.push_back( SDL_GetKeyName(e.key.keysym.sym) );
+                            heldKeys.push_back( SDL_GetKeyName(e.key.keysym.sym) );
+                        }
+                    
                         
 
+                    }
+                    if (e.type == SDL_KEYUP){
+                        heldKeys.erase(std::find(heldKeys.begin(),heldKeys.end(),SDL_GetKeyName(e.key.keysym.sym)));
+                        releasedKeys.push_back( SDL_GetKeyName(e.key.keysym.sym) );
                     }
                     
 
                 }
+                
+
+                
+                jerry.mainLoop(pressedKeys,heldKeys,releasedKeys); 
+                if (heldKeys.size() > 0){
+                    data = "Pressed keys: ";
+                    for (int i = 0; i < heldKeys.size(); i++){
+                        data += heldKeys[i];
+                    }
+                } else {
+                    data = "No keys pressed";
+                }
+                temp = TTF_RenderText_Solid(sex,data.c_str(),black);
+                leText = SDL_CreateTextureFromSurface(renderer, temp);
                 mWidth = temp->w;
                 mHeight = temp->h;
                 
@@ -98,20 +123,6 @@ int main(int argc, char* args[]){
                 msg.y = jerry.y;
                 msg.w = mWidth;
                 msg.h = mHeight;
-
-                
-                jerry.mainLoop(); 
-                if (pressedKeys.size() > 0){
-                    data = "Pressed keys: ";
-                    for (int i = 0; i < pressedKeys.size(); i++){
-                        data += pressedKeys[i];
-                    }
-                } else {
-                    data = "No keys pressed";
-                }
-                temp = TTF_RenderText_Solid(sex,data.c_str(),black);
-                leText = SDL_CreateTextureFromSurface(renderer, temp);
-                
                 
                 SDL_RenderClear( renderer );
                 //INSERT ALL FLIPS BELOW ME

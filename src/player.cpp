@@ -2,6 +2,7 @@
 #include "globals.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <vector>
 
 void Player::LoadMedia(SDL_Renderer *renderer, std::string file){
     SDL_Surface* temp = IMG_Load(file.c_str());
@@ -28,11 +29,13 @@ void Player::Flip(SDL_Renderer *renderer){
     
 }
 
-void Player::mainLoop(){
+void Player::mainLoop(std::vector<std::string> p_array,std::vector<std::string> h_array,std::vector<std::string> r_array){
     dst.x = this->x;
     dst.y = this->y;
 
-    //this->x += 1;
+    int moveH = checkKey("A",h_array) - checkKey("D",h_array);
+
+
 
 
 }
