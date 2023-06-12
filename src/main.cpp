@@ -75,7 +75,7 @@ int main(int argc, char* args[]){
             std::vector<std::string> releasedKeys;
             std::string data = "No keys pressed";
             while( quit == false ){ 
-                pressedKeys.clear();
+                //pressedKeys.clear();
                 SDL_DestroyTexture(leText);
                 SDL_FreeSurface(temp);
                 
@@ -90,7 +90,7 @@ int main(int argc, char* args[]){
                     }
                     
 
-                } 
+                }
                 mWidth = temp->w;
                 mHeight = temp->h;
                 
@@ -137,6 +137,7 @@ int main(int argc, char* args[]){
         return 0;
 
         }
+
     }
     
 }
